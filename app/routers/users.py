@@ -15,13 +15,13 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
         models.User.email == user.email
     ).first()
     if exiting_user:
-        raise HTTPException(status_code=400, detail="Email alreadylready registered")
+        raise HTTPException(status_code=400, detail="Email already registered")
     
     hashed_password = pwd_context.hash(user.password)
 
     new_user = models.User(
         email=user.email,
-        hashed_password=hashed_passwordgit
+        hashed_password=hashed_password
     )
 
 
