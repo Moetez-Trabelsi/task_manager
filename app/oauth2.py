@@ -30,7 +30,7 @@ def verify_access_token(token:str):
         if user_id is None:
             raise HTTPException(status_code=401,detail="Invalid token")
         return user_id
-    except:
+    except JWTError:
         raise HTTPException(status_code=401,detail="Invalid token")
 
 def get_current_user(token:str = Depends(oauth_scheme), db : Session = Depends(get_db)):

@@ -9,7 +9,7 @@ router = APIRouter()
 
 pwd_context = CryptContext(schemes=["bcrypt"],deprecated="auto")
 
-@router.post("/users", response_model=schemas.UserResponse)
+@router.post("/", status_code=201, response_model=schemas.UserResponse)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     exiting_user = db.query(models.User).filter(
         models.User.email == user.email

@@ -6,7 +6,7 @@ from app import models
 from app.oauth2 import create_access_token
 from passlib.context import CryptContext
 
-router = APIRouter(prefix="/auth", tags=["Authentication"])
+router = APIRouter()
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

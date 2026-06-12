@@ -27,6 +27,7 @@ class TaskResponse(BaseModel):
     title: str
     description: Optional[str]
     owner_id: int
+    is_completed: bool
     created_at: datetime
 
     class Config:
